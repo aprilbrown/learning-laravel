@@ -8,7 +8,7 @@
     <title>Test Page</title>
 </head>
 <body>
-    <h1>Welcome {{$name}}</h1>
+    <h1>{{$task->body}}</h1>
 
 </body>
 </html>

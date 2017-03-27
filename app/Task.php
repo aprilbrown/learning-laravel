@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    //at video 7 6:24
+    public function scopeIncomplete( $query )
+    {
+        return $query->where('completed',0);
+    }
 }
