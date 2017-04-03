@@ -10,10 +10,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    $name = 'April';
-
-    return view('welcome', compact('name'));
-});
-Route::get('/tasks', 'TasksController@index');
-Route::get('/tasks/{task}', 'TasksController@show');
+Route::get('/', 'PostsController@index');
+Route::get('/posts/{post}', 'PostsController@show');
