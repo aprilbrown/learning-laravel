@@ -15,6 +15,10 @@ Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@show');
 
+Route::get('/vue_practice', function () {
+    return view('vue_practice.index');
+});
+
 Route::get('/posts/tags/{tag}','TagsController@index');
 
 Route::post('/posts/{post}/comments','CommentsController@store');
