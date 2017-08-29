@@ -34,59 +34,19 @@
                 <li v-for="task in incompleteTasks" v-text="task.description"></li>
             </ul>
         </div>
+        <hr>
+        <div id="lesson7">
+            <task>A</task>
+            <task>B</task>
+            <task>C</task>
+        </div>
+        <hr>
+        <div id="lesson8">
+            <task-list></task-list>
+        </div>
+        <hr>
     </div>
 
-    <script>
-        var lesson1 = new Vue({
-            el: '#lesson1',
-            data: {
-                message: 'Hello World'
-            }
-        })
-        var lesson3 = new Vue({
-            el: '#lesson3',
-            data: {
-                newName: '',
-                names: ['Joe', 'Mary', 'Jane', 'Jack']
-            },
-            methods: {
-                addName: function(){
-                    this.names.push(this.newName);
-                    this.newName = '';
-                }
-            }
-        })
-        var lesson5 = new Vue({
-            el: '#lesson5',
-            data:{
-                title: 'I am a button.',
-                isLoading: false
-            },
-            methods: {
-                toggleClass: function(){
-                    this.isLoading = true;
-                }
-            }
-        })
-        var lesson6 = new Vue({
-            el: '#lesson6',
-            data: {
-                message: 'All Tasks',
-                tasks: [
-                    {description: 'go to the store', completed: true},
-                    {description: 'feed the dog', completed: false},
-                    {description: 'dance like no one is watching', completed: true},
-                ]
-            },
-            computed: {
-                reversedMessage(){
-                    return this.message.split('').reverse().join('');
-                },
-                incompleteTasks(){
-                    return this.tasks.filter(task => ! task.completed);
-                }
-            }
-        })
-    </script>
+    <script src="/js/main.js"></script>
 
 @endsection
