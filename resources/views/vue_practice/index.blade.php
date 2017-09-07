@@ -63,6 +63,21 @@
             </modal>
             <button @click="showModal = true">Show Modal</button>
         </div>
+        <hr>
+        <div id="lesson11">
+            <tabs>
+                <tab name="About Us" :selected="true">
+                    <h1>About Us Tab</h1>
+                </tab>
+                <tab name="About Me">
+                    <h1>About Me Tab</h1>
+                </tab>
+                <tab name="About Dogs">
+                    <h1>About Dogs Tab</h1>
+                </tab>
+            </tabs>
+        </div>
+        <hr>
     </div>
 
     <script src="/js/main.js"></script>
