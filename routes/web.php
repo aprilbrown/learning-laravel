@@ -18,6 +18,9 @@ Route::get('/posts/{post}', 'PostsController@show');
 Route::get('/vue_practice', function () {
     return view('vue_practice.index');
 });
+Route::get('/vue_practice/part2', function () {
+    return view('vue_practice.part2');
+});
 
 Route::get('/posts/tags/{tag}','TagsController@index');
 

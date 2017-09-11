@@ -78,6 +78,10 @@
             </tabs>
         </div>
         <hr>
+        <div id="lesson12">
+            <coupon @applied="onCouponApplied"></coupon>
+            <h1 v-if="couponApplied">You used a coupon</h1>
+        </div>
     </div>
 
     <script src="/js/main.js"></script>

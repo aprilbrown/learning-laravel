@@ -100,12 +100,23 @@ Vue.component('tab',{
     }
 });
 
+window.Event = new Vue();
+
+Vue.component('coupon',{
+    template: `<input placeholder="Enter your Coupon Code" @blur="onCouponApplied">`,
+    methods: {
+        onCouponApplied(){
+            Event.$emit('applied');
+        }
+    }
+});
+
 var lesson1 = new Vue({
     el: '#lesson1',
     data: {
         message: 'Vue Practice'
     }
-})
+});
 var lesson3 = new Vue({
     el: '#lesson3',
     data: {
@@ -118,7 +129,7 @@ var lesson3 = new Vue({
             this.newName = '';
         }
     }
-})
+});
 var lesson5 = new Vue({
     el: '#lesson5',
     data:{
@@ -130,7 +141,7 @@ var lesson5 = new Vue({
             this.isLoading = true;
         }
     }
-})
+});
 var lesson6 = new Vue({
     el: '#lesson6',
     data: {
@@ -149,22 +160,36 @@ var lesson6 = new Vue({
             return this.tasks.filter(task => ! task.completed);
         }
     }
-})
+});
 var lesson7 = new Vue({
     el: '#lesson7'
-})
+});
 var lesson8 = new Vue({
     el: '#lesson8'
-})
+});
 var lesson9 = new Vue({
     el: '#lesson9'
-})
+});
 var lesson10 = new Vue({
     el: '#lesson10',
     data: {
         showModal: false
     }
-})
+});
 var lesson11 = new Vue({
     el: '#lesson11'
-})
+});
+var lesson12 = new Vue({
+    el: '#lesson12',
+    data: {
+        couponApplied: false
+    },
+    methods: {
+        onCouponApplied(){
+            this.couponApplied = true;
+        }
+    },
+    created() {
+        Event.$on('applied', () => alert('jokes'));
+    }
+});
