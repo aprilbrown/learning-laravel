@@ -1,3 +1,5 @@
+window.Event = new Vue();
+
 Vue.component('task-list',{
     template: `
     <div>
@@ -99,9 +101,6 @@ Vue.component('tab',{
         this.isActive = this.selected;
     }
 });
-
-window.Event = new Vue();
-
 Vue.component('coupon',{
     template: `<input placeholder="Enter your Coupon Code" @blur="onCouponApplied">`,
     methods: {
@@ -110,6 +109,7 @@ Vue.component('coupon',{
         }
     }
 });
+
 
 var lesson1 = new Vue({
     el: '#lesson1',
