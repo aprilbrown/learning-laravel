@@ -1,32 +1,99 @@
-Vue.component('modal',{
-    template: `<div class="modal">
-                  <div class="modal-background"></div>
-                  <div class="modal-card">
-                    <header class="modal-card-head">
-                      <p class="modal-card-title">
-                        <slot name="header"></slot>
-                      </p>
-                      <button class="delete" aria-label="close"></button>
-                    </header>
-                    <section class="modal-card-body">
-                        <slot></slot>
-                    </section>
-                    <footer class="modal-card-foot">
-                      <slot name="footer">
-                        <button class="button is-success">OK</button>
-                      </slot>
-                    </footer>
-                  </div>
-                </div>`
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "./";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 12:
+/***/ (function(module, exports) {
+
+Vue.component('modal', {
+  template: '<div class="modal">\n                  <div class="modal-background"></div>\n                  <div class="modal-card">\n                    <header class="modal-card-head">\n                      <p class="modal-card-title">\n                        <slot name="header"></slot>\n                      </p>\n                      <button class="delete" aria-label="close"></button>\n                    </header>\n                    <section class="modal-card-body">\n                        <slot></slot>\n                    </section>\n                    <footer class="modal-card-foot">\n                      <slot name="footer">\n                        <button class="button is-success">OK</button>\n                      </slot>\n                    </footer>\n                  </div>\n                </div>'
 });
-Vue.component('progress-view',{
-   data() {
-       return{completionRate: 75};
-   }
+Vue.component('progress-view', {
+  data: function data() {
+    return { completionRate: 75 };
+  }
 });
 var lesson14 = new Vue({
-    el: '#lesson14'
+  el: '#lesson14'
 });
 var lesson15 = new Vue({
-    el: '#lesson15'
+  el: '#lesson15'
 });
+
+/***/ }),
+
+/***/ 43:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(12);
+
+
+/***/ })
+
+/******/ });

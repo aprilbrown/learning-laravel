@@ -1,115 +1,148 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "./";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 11:
+/***/ (function(module, exports) {
+
 window.Event = new Vue();
 
-Vue.component('task-list',{
-    template: `
-    <div>
-        <task v-for="task in tasks">{{task.task}}</task>
-    </div>`,
-    data(){
-        return{
-            tasks: [
-                {task: 'go to the store', completed: true},
-                {task: 'feed the dog', completed: false},
-                {task: 'dance like no one is watching', completed: true},
-            ]
-        }
+Vue.component('task-list', {
+    template: '\n    <div>\n        <task v-for="task in tasks">{{task.task}}</task>\n    </div>',
+    data: function data() {
+        return {
+            tasks: [{ task: 'go to the store', completed: true }, { task: 'feed the dog', completed: false }, { task: 'dance like no one is watching', completed: true }]
+        };
     }
 });
-Vue.component('task',{
+Vue.component('task', {
     template: '<li><slot></slot></li>'
 });
-Vue.component('message',{
+Vue.component('message', {
     props: ['title', 'body'],
-    data(){
-        return{
-         isVisible: true
+    data: function data() {
+        return {
+            isVisible: true
         };
-    }    ,
-    template: `
-                <article class="message" v-show="isVisible">
-                <div class="message-header">
-                    {{ title }}
-                    <button class="delete" aria-label="delete" @click="isVisible = false"></button>
-                </div>
-                <div class="message-body">
-                    {{ body }}
-                </div>
-            </article>
-    `
+    },
+
+    template: '\n                <article class="message" v-show="isVisible">\n                <div class="message-header">\n                    {{ title }}\n                    <button class="delete" aria-label="delete" @click="isVisible = false"></button>\n                </div>\n                <div class="message-body">\n                    {{ body }}\n                </div>\n            </article>\n    '
 });
 Vue.component('modal', {
-    template: `
-    <div class="modal is-active">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <slot></slot>
-            </div>
-            <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
-        </div>
-    </div>
-    `
+    template: '\n    <div class="modal is-active">\n        <div class="modal-background"></div>\n        <div class="modal-content">\n            <div class="box">\n                <slot></slot>\n            </div>\n            <button class="modal-close is-large" aria-label="close" @click="$emit(\'close\')"></button>\n        </div>\n    </div>\n    '
 });
-Vue.component('tabs',{
-    template: `
-    <div>
-        <div class="tabs">
-          <ul>
-            <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }">
-                <a :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>
-            </li>
-          </ul>
-        </div>
-        <div class="tabs-details">
-            <slot></slot>
-        </div>
-    </div>`,
-    data(){
+Vue.component('tabs', {
+    template: '\n    <div>\n        <div class="tabs">\n          <ul>\n            <li v-for="tab in tabs" :class="{ \'is-active\': tab.isActive }">\n                <a :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>\n            </li>\n          </ul>\n        </div>\n        <div class="tabs-details">\n            <slot></slot>\n        </div>\n    </div>',
+    data: function data() {
         return { tabs: [] };
     },
-    created(){
+    created: function created() {
         this.tabs = this.$children;
     },
+
     methods: {
-        selectTab(selectedTab){
-            this.tabs.forEach(tab => {
-                tab.isActive = (tab.name == selectedTab.name);
+        selectTab: function selectTab(selectedTab) {
+            this.tabs.forEach(function (tab) {
+                tab.isActive = tab.name == selectedTab.name;
             });
         }
     }
 });
-Vue.component('tab',{
-    template: `
-    <div v-show="isActive">
-        <slot></slot>
-    </div>`,
+Vue.component('tab', {
+    template: '\n    <div v-show="isActive">\n        <slot></slot>\n    </div>',
     props: {
         name: { required: true },
         selected: { default: false }
     },
-    data() {
+    data: function data() {
         return {
             isActive: false
-        }
+        };
     },
+
     computed: {
-        href() {
+        href: function href() {
             return '#' + this.name.toLowerCase().replace(/ /g, '-');
         }
     },
-    mounted() {
+    mounted: function mounted() {
         this.isActive = this.selected;
     }
 });
-Vue.component('coupon',{
-    template: `<input placeholder="Enter your Coupon Code" @blur="onCouponApplied">`,
+Vue.component('coupon', {
+    template: '<input placeholder="Enter your Coupon Code" @blur="onCouponApplied">',
     methods: {
-        onCouponApplied(){
+        onCouponApplied: function onCouponApplied() {
             Event.$emit('applied');
         }
     }
 });
-
 
 var lesson1 = new Vue({
     el: '#lesson1',
@@ -124,7 +157,7 @@ var lesson3 = new Vue({
         names: ['Joe', 'Mary', 'Jane', 'Jack']
     },
     methods: {
-        addName(){
+        addName: function addName() {
             this.names.push(this.newName);
             this.newName = '';
         }
@@ -132,12 +165,12 @@ var lesson3 = new Vue({
 });
 var lesson5 = new Vue({
     el: '#lesson5',
-    data:{
+    data: {
         title: 'I am a button.',
         isLoading: false
     },
     methods: {
-        toggleClass(){
+        toggleClass: function toggleClass() {
             this.isLoading = true;
         }
     }
@@ -146,18 +179,16 @@ var lesson6 = new Vue({
     el: '#lesson6',
     data: {
         message: 'All Tasks',
-        tasks: [
-            {description: 'go to the store', completed: true},
-            {description: 'feed the dog', completed: false},
-            {description: 'dance like no one is watching', completed: true},
-        ]
+        tasks: [{ description: 'go to the store', completed: true }, { description: 'feed the dog', completed: false }, { description: 'dance like no one is watching', completed: true }]
     },
     computed: {
-        reversedMessage(){
+        reversedMessage: function reversedMessage() {
             return this.message.split('').reverse().join('');
         },
-        incompleteTasks(){
-            return this.tasks.filter(task => ! task.completed);
+        incompleteTasks: function incompleteTasks() {
+            return this.tasks.filter(function (task) {
+                return !task.completed;
+            });
         }
     }
 });
@@ -185,11 +216,25 @@ var lesson12 = new Vue({
         couponApplied: false
     },
     methods: {
-        onCouponApplied(){
+        onCouponApplied: function onCouponApplied() {
             this.couponApplied = true;
         }
     },
-    created() {
-        Event.$on('applied', () => alert('jokes'));
+    created: function created() {
+        Event.$on('applied', function () {
+            return alert('jokes');
+        });
     }
 });
+
+/***/ }),
+
+/***/ 42:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(11);
+
+
+/***/ })
+
+/******/ });
