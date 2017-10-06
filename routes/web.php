@@ -33,3 +33,7 @@ Route::get('/login', 'SessionsController@create');
 Route::post('/login', 'SessionsController@store');
 
 Route::get('/logout', 'SessionsController@destroy');
+
+Route::get('skills', function(){
+    return ['laravel','php','javascript'];
+});

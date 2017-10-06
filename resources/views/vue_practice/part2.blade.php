@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section ('content')
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@2.4.2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.css"/>
 
@@ -27,6 +28,24 @@
             </progress-view>
         </div>
         <hr>
+        <div id="lesson18">
+            <ul>
+                <li v-for="skill in skills" v-text="skill"></li>
+            </ul>
+        </div>
+        <hr>
+        <div id="lesson24a">
+            <h1>@{{ shared.user.name  }}</h1>
+        </div>
+        <div id="lesson24b">
+            <h1>@{{ shared.user.name  }}</h1>
+        </div>
+        <hr>
+        <div id="lesson25">
+            {{--<input type="text" v-model="coupon">--}}
+            {{--<input type="text" :value="coupon" @input="coupon = $event.target.value">--}}
+            <coupon v-model="coupon">
+        </div>
     </div>
 
     <script src="/js/main2.js"></script>

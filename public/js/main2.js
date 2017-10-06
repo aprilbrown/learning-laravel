@@ -72,18 +72,71 @@
 /***/ (function(module, exports) {
 
 Vue.component('modal', {
-  template: '<div class="modal">\n                  <div class="modal-background"></div>\n                  <div class="modal-card">\n                    <header class="modal-card-head">\n                      <p class="modal-card-title">\n                        <slot name="header"></slot>\n                      </p>\n                      <button class="delete" aria-label="close"></button>\n                    </header>\n                    <section class="modal-card-body">\n                        <slot></slot>\n                    </section>\n                    <footer class="modal-card-foot">\n                      <slot name="footer">\n                        <button class="button is-success">OK</button>\n                      </slot>\n                    </footer>\n                  </div>\n                </div>'
+    template: '<div class="modal">\n                  <div class="modal-background"></div>\n                  <div class="modal-card">\n                    <header class="modal-card-head">\n                      <p class="modal-card-title">\n                        <slot name="header"></slot>\n                      </p>\n                      <button class="delete" aria-label="close"></button>\n                    </header>\n                    <section class="modal-card-body">\n                        <slot></slot>\n                    </section>\n                    <footer class="modal-card-foot">\n                      <slot name="footer">\n                        <button class="button is-success">OK</button>\n                      </slot>\n                    </footer>\n                  </div>\n                </div>'
 });
 Vue.component('progress-view', {
-  data: function data() {
-    return { completionRate: 75 };
-  }
+    data: function data() {
+        return { completionRate: 8 };
+    }
+});
+Vue.component('coupon', {
+    props: ['value'],
+    template: '<input type="text" :value="value" @input="updateCode($event.target.value)">',
+    methods: {
+        updateCode: function updateCode(code) {
+            if (code === 'HELLO') {
+                alert('No Longer Valid Chump!');
+
+                code = '';
+            }
+
+            this.$emit('input', code);
+        }
+    }
 });
 var lesson14 = new Vue({
-  el: '#lesson14'
+    el: '#lesson14'
 });
 var lesson15 = new Vue({
-  el: '#lesson15'
+    el: '#lesson15'
+});
+var lesson18 = new Vue({
+    el: '#lesson18',
+    data: {
+        skills: []
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        axios.get('/skills').then(function (response) {
+            return console.log(_this.skills = response.data);
+        });
+    }
+});
+var store = {
+    user: {
+        name: 'Jane Smith'
+    }
+};
+var lesson24a = new Vue({
+    el: '#lesson24a',
+    data: {
+        foo: 'bar',
+        shared: store
+    }
+});
+var lesson24b = new Vue({
+    el: '#lesson24b',
+    data: {
+        foo: 'other bar',
+        shared: store
+    }
+});
+var lesson25 = new Vue({
+    el: '#lesson25',
+    data: {
+        coupon: 'freepie'
+    }
 });
 
 /***/ }),
