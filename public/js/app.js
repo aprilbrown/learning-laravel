@@ -11230,7 +11230,7 @@ __webpack_require__(33);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
+ * the page. Then, you may begin adding views to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
@@ -11937,7 +11937,7 @@ module.exports = (
     var originURL;
 
     /**
-    * Parse a URL to discover it's components
+    * Parse a URL to discover it's views
     *
     * @param {String} url The URL to be parsed
     * @returns {Object}
@@ -12137,7 +12137,7 @@ __webpack_require__(34);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
- * using reactive data binding and reusable components. Vue's API is clean
+ * using reactive data binding and reusable views. Vue's API is clean
  * and simple, leaving you to focus on building your next great project.
  */
 
@@ -31661,9 +31661,9 @@ var Component = __webpack_require__(37)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\laragon\\www\\learning-laravel\\resources\\assets\\js\\components\\Example.vue"
+Component.options.__file = "C:\\laragon\\www\\learning-laravel\\resources\\assets\\js\\views\\Home.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] Home.vue: functional views are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -33757,11 +33757,11 @@ function checkProp (
 // generated render function is guaranteed to return Array<VNode>. There are
 // two cases where extra normalization is needed:
 
-// 1. When the children contains components - because a functional component
+// 1. When the children contains views - because a functional component
 // may return an Array instead of a single root. In this case, just a simple
 // normalization is needed - if any child is an Array, we flatten the whole
 // thing with Array.prototype.concat. It is guaranteed to be only 1-level deep
-// because functional components already normalize their own children.
+// because functional views already normalize their own children.
 function simpleNormalizeChildren (children) {
   for (var i = 0; i < children.length; i++) {
     if (Array.isArray(children[i])) {
@@ -34351,7 +34351,7 @@ function mountComponent (
   hydrating = false;
 
   // manually mounted instance, call mounted on self
-  // mounted is called for render-created child components in its inserted hook
+  // mounted is called for render-created child views in its inserted hook
   if (vm.$vnode == null) {
     vm._isMounted = true;
     callHook(vm, 'mounted');
@@ -34964,7 +34964,7 @@ function initData (vm) {
     data = {};
     process.env.NODE_ENV !== 'production' && warn(
       'data functions should return an object:\n' +
-      'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
+      'https://vuejs.org/v2/guide/views.html#data-Must-Be-a-Function',
       vm
     );
   }
@@ -35286,7 +35286,7 @@ function createFunctionalComponent (
     if (isDef(data.attrs)) { mergeProps(props, data.attrs); }
     if (isDef(data.props)) { mergeProps(props, data.props); }
   }
-  // ensure the createElement function in functional components
+  // ensure the createElement function in functional views
   // gets a unique context - this is necessary for correct named slot check
   var _context = Object.create(context);
   var h = function (a, b, c, d) { return createElement(_context, a, b, c, d, true); };
@@ -35334,7 +35334,7 @@ var componentVNodeHooks = {
       );
       child.$mount(hydrating ? vnode.elm : undefined, hydrating);
     } else if (vnode.data.keepAlive) {
-      // kept-alive components, treat as a patch
+      // kept-alive views, treat as a patch
       var mountedNode = vnode; // work around flow
       componentVNodeHooks.prepatch(mountedNode, mountedNode);
     }
@@ -35362,7 +35362,7 @@ var componentVNodeHooks = {
     if (vnode.data.keepAlive) {
       if (context._isMounted) {
         // vue-router#1212
-        // During updates, a kept-alive component's child components may
+        // During updates, a kept-alive component's child views may
         // change, so directly walking the tree here may call activated hooks
         // on incorrect children. Instead we push them into a queue which will
         // be processed after the whole patch process ended.
@@ -35460,7 +35460,7 @@ function createComponent (
   data.on = data.nativeOn;
 
   if (isTrue(Ctor.options.abstract)) {
-    // abstract components do not keep anything
+    // abstract views do not keep anything
     // other than props & listeners & slot
 
     // work around flow
@@ -36416,7 +36416,7 @@ var KeepAlive = {
         return vnode
       }
       var key = vnode.key == null
-        // same constructor may get registered as different local components
+        // same constructor may get registered as different local views
         // so cid alone is not enough (#3269)
         ? componentOptions.Ctor.cid + (componentOptions.tag ? ("::" + (componentOptions.tag)) : '')
         : vnode.key;
@@ -36470,7 +36470,7 @@ function initGlobalAPI (Vue) {
   });
 
   // this is used to identify the "base" constructor to extend all plain-object
-  // components with in Weex's multi-instance scenarios.
+  // views with in Weex's multi-instance scenarios.
   Vue.options._base = Vue;
 
   extend(Vue.options.components, builtInComponents);
@@ -36944,7 +36944,7 @@ function createPatchFunction (backend) {
         ) {
           warn(
             'Unknown custom element: <' + tag + '> - did you ' +
-            'register the component correctly? For recursive components, ' +
+            'register the component correctly? For recursive views, ' +
             'make sure to provide the "name" option.',
             vnode.context
           );
@@ -39488,7 +39488,7 @@ var Transition = {
     }
 
     // apply transition data to child
-    // use getRealChild() to ignore abstract components e.g. keep-alive
+    // use getRealChild() to ignore abstract views e.g. keep-alive
     var child = getRealChild(rawChild);
     /* istanbul ignore if */
     if (!child) {
@@ -39737,7 +39737,7 @@ Vue$3.config.isReservedAttr = isReservedAttr;
 Vue$3.config.getTagNamespace = getTagNamespace;
 Vue$3.config.isUnknownElement = isUnknownElement;
 
-// install platform runtime directives & components
+// install platform runtime directives & views
 extend(Vue$3.options.directives, platformDirectives);
 extend(Vue$3.options.components, platformComponents);
 
@@ -40927,7 +40927,7 @@ function markStatic$1 (node) {
   node.static = isStatic(node);
   if (node.type === 1) {
     // do not make component slot content static. this avoids
-    // 1. components not able to mutate slot nodes
+    // 1. views not able to mutate slot nodes
     // 2. static slot content fails for hot-reloading
     if (
       !isPlatformReservedTag(node.tag) &&
@@ -41348,7 +41348,7 @@ function genData$2 (el, state) {
   if (el.pre) {
     data += "pre:true,";
   }
-  // record original tag name for components using "is" attribute
+  // record original tag name for views using "is" attribute
   if (el.component) {
     data += "tag:\"" + (el.tag) + "\",";
   }
@@ -41432,7 +41432,7 @@ function genInlineTemplate (el, state) {
   if (process.env.NODE_ENV !== 'production' && (
     el.children.length > 1 || ast.type !== 1
   )) {
-    state.warn('Inline-template components must have exactly one child element.');
+    state.warn('Inline-template views must have exactly one child element.');
   }
   if (ast.type === 1) {
     var inlineRenderFns = generate(ast, state.options);
